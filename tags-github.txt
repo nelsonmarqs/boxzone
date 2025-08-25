@@ -1,0 +1,7 @@
+Modifique seus arquivos.
+
+git add . → adiciona as alterações.
+
+git commit -m "mensagem" → cria o commit.
+
+git push → envia para o GitHub.

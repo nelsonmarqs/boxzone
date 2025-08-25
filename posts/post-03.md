@@ -10,7 +10,7 @@
   </div>
 
   <div class="post-titulo">
-    <h1><a href="#">It’s Google’s turn to convince us to care about AI on our phones</a></h1>
+    <h1><a href="#">It’s Google’s turn to convince us to care about AI on our Poneis</a></h1>
   </div>
 
   <div class="post-descricao">

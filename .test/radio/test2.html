@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fake Rádio FM</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:system-ui,sans-serif;
+    background:#111;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+  }
+  .cards{
+    max-width:600px;
+    text-align:center;
+    margin:20px;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-radius:10px;
+    display:none;
+  }
+  .cards img{max-width:100%;border-radius:10px;}
+  #player{
+    margin-top:20px;
+    width:90%;
+  }
+  #clock{
+    margin-top:10px;
+    font-size:1.2rem;
+    color:#aaf;
+  }
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+<audio id="player" controls autoplay></audio>
+
+<main>
+  <div class="cards">
+    <img src="https://via.placeholder.com/600x300?text=Tame+Impala">
+    <p>New Person, Same Old Mistakes - Tame Impala</p>
+  </div>
+  <div class="cards">
+    <img src="https://via.placeholder.com/600x300?text=niLL">
+    <p>WiFi - niLL</p>
+  </div>
+  <div class="cards">
+    <img src="https://via.placeholder.com/600x300?text=Melanie+Martinez">
+    <p>Sippy Cup - Melanie Martinez</p>
+  </div>
+</main>
+
+<script>
+  const p = document.getElementById('player'),
+        c = document.getElementById('clock'),
+        cards = [...document.querySelectorAll('.cards')],
+        pl = [
+          ["tema-impala.mp3", 363],
+          ["nill-wifi.mp3", 209],
+          ["Soap.mp3", 209]
+        ],
+        sh = 11, smp = 22;
+
+  // duração total da playlist
+  const totalDur = pl.reduce((a, b) => a + b[1], 0);
+
+  // calcula a posição atual da rádio baseado no horário real
+  function radioPos() {
+    const d = new Date();
+    let diff = Math.floor((Date.now() - Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), sh + 3, smp, 0)) / 1000);
+    diff = ((diff % totalDur) + totalDur) % totalDur; // garante valor positivo
+
+    for (let i = 0; i < pl.length; i++) {
+      if (diff < pl[i][1]) return [i, diff];
+      diff -= pl[i][1];
+    }
+  }
+
+  // atualiza player e card de acordo com horário real
+  function playRadio() {
+    const [i, t] = radioPos();
+    p.src = pl[i][0];
+    p.currentTime = t;
+    p.play().catch(() => {});
+
+    cards.forEach((x, j) => x.style.display = j === i ? 'block' : 'none');
+
+    p.onended = () => {
+      // pega a música atual
+      const [i] = radioPos();
+      // próxima música em ordem
+      let next = (i + 1) % pl.length;
+
+      p.src = pl[next][0];
+      p.currentTime = 0; // sempre do início
+      p.play().catch(() => {});
+      cards.forEach((x, j) => x.style.display = j === next ? 'block' : 'none');
+    };
+  }
+
+  // atualizar hora na tela
+  function updClock() {
+    const d = new Date();
+    c.textContent = `Hora local: ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
+  }
+
+  setInterval(updClock, 1000);
+  updClock();
+
+  // **isso garante que toda vez que clicar play, ele atualiza a posição**
+  p.addEventListener('play', () => {
+    const [i, t] = radioPos();
+    if (Math.abs(p.currentTime - t) > 1) { // evita reiniciar desnecessariamente
+      p.src = pl[i][0];
+      p.currentTime = t;
+      p.play().catch(() => {});
+      cards.forEach((x, j) => x.style.display = j === i ? 'block' : 'none');
+    }
+  });
+
+  playRadio();
+</script>
+</body>
+</html>

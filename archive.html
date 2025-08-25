@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Load More Super Otimizado</title>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js"></script>
+<script src="js/script.js"></script>
+<style>
+  /* Reset básico eficiente */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  html {
+    font-size: 100%;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    color: #cfc2fa;
+    background-image: url('../img/fundo.png');
+  }
+
+  /* Remove bordas e estilos padrão de botões e inputs */
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+    user-select: none;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Font's */
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+  @font-face {
+    font-family: 'Myfont-Regular';
+    src: url('fonts/Myfont-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'LTWave-Bold';
+    src: url('fonts/LTWave-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'trebuc';
+    src: url('fonts/trebuc.ttf') format('truetype');
+  }
+
+
+
+
+
+
+
+
+
+  body {
+    font-family: system-ui, sans-serif;
+    background: #111;
+    color: #fff;
+  }
+
+  .archive{
+    
+  }
+
+  .archive-area{
+
+  }
+
+  .archive-center{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+
+  .card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    display: none;
+  }
+
+  #loadMore{
+
+  }
+
+  .archive-lateral{
+    display: none;
+  }
+
+  @media(min-width: 740px){
+    .archive-center{
+      width: 700px;
+      margin: 0px 0px 0px 20px;
+    }
+  }
+
+  @media(min-width: 768px){
+    .archive-center{
+      width: 670px;
+      margin: 0 auto 0 auto;
+      transform: translateX(15px);
+    }
+  }
+
+  @media(min-width: 1180px){
+    .archive-area{
+      width: 1100px;
+      display: flex;
+      justify-content: flex-end;
+      column-gap: 100px;
+      border: 1px solid red;
+      margin: 0 auto;
+    }
+
+    .archive-center{
+      margin: 0px;
+      transform: translateX(0px);
+    }
+    
+    .archive-lateral{
+      width: 300px;
+      display: block;
+      border: 1px solid lime;
+    }
+  }
+
+
+
+
+
+
+
+  .noticias .post-a{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border: 1px solid lime;
+    padding: 30px 0px;
+  }
+  
+  .noticias .post-img{
+    width: 75px;
+    display: flex;
+    align-items: center;
+  }
+
+  .noticias .post-img a img{
+    width: 100%;
+    height: 75px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .noticias .post-text-area{
+    width: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .noticias .post-tags{
+    font-family: trebuc;
+    font-size: 13px;
+    line-height: 20px;
+    color: #bafa00;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  
+  .noticias .post-titulo h1{
+    font-family: LTWave-Bold;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 5px;
+  }
+
+  .noticias .post-descricao{
+    display: none;
+  }
+
+  .noticias .post-autor p{
+    font-family: trebuc;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .noticias .post-autor p span{
+    color: #bafa00;
+  }
+
+  .noticias .post-autor p img{
+    transform: translateY(2px);
+  }
+
+  .noticias .post-tags-2{
+    display: none;
+  }
+
+  .noticias .post-b{
+    display: none;
+  }
+
+  @media(min-width: 640px){
+    .noticias .post-a{
+      padding: 30px 10px;
+    }
+
+    .noticias .post-img{
+      width: 100px;
+    }
+
+    .noticias .post-img a img{
+      height: 100px;
+    }
+
+    .noticias .post-text-area{
+      width: calc(100% - 115px);
+    }
+  }
+
+  @media(min-width: 740px){
+    .noticias .post-img{
+      width: 195px;
+    }
+
+    .noticias .post-img a img{
+      width: 195px;
+      height: 130px;
+    }
+
+    .noticias .post-text-area{
+      width: calc(100% - 210px);
+    }
+  }
+
+  @media(min-width: 768px){
+    .noticias{
+      border: 1px solid red;
+    }
+
+    .noticias .post-a{
+      width: 100%;
+    }
+    
+    .noticias .post-text-area{}
+    
+    .noticias .post-tags{
+      display: none;
+    }
+
+    .noticias .post-tags-2{
+      display: block;
+    }
+
+    .noticias .post-tags-2 a{
+      display: block;
+      font-family: trebuc;
+      font-size: 13px;
+      line-height: 20px;
+      color: #bafa00;
+      text-decoration: underline;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      position: relative;
+      top: calc(50% - 8px);
+    }
+  }
+
+  @media(min-width: 1180px){
+    .noticias .post-titulo h1{
+      font-size: 24px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+ .principal{}
+ 
+ .principal .post-a{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lime;
+ }
+ 
+ .principal .post-img{
+  width: calc(100% - 16px);
+  height: 122px;
+  align-self: center;
+  border-radius: 6px;
+  overflow: hidden;
+  transform: translateY(20px);
+  z-index: -1;
+ }
+ 
+ .principal .post-img a{}
+ 
+ .principal .post-img a img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ }
+ 
+ .principal .post-text-area{
+    width: calc(100% - 16px);
+    align-self: center;
+    padding-left: 12px;
+ }
+ 
+ .principal .post-tags{
+  display: none;
+ }
+ 
+ .principal .post-titulo{}
+ 
+ .principal .post-titulo h1{
+  font-family: Myfont-Regular;
+  font-size: 36px;
+  line-height: 39px;
+ }
+ 
+ .principal .post-titulo h1 a{}
+ 
+ .principal .post-descricao{
+  margin-top: 2px;
+ }
+ 
+ .principal .post-descricao p{
+  font-family: trebuc;
+  font-size: 13px;
+  line-height: 22px;
+ }
+ 
+ .principal .post-autor{
+  margin-top: 5px;
+ }
+ 
+ .principal .post-autor p{
+  font-family: trebuc;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+ }
+ 
+  .principal .post-autor p span{
+    color: #bafa00;
+  }
+ 
+ .principal .post-autor p img{
+  transform: translateY(2px);
+ }
+
+ .post-tags-2{
+  display: none;
+ }
+
+ .post-b{
+  display: none;
+ }
+
+  @media(min-width: 620px){
+    .principal .post-img{
+      width: calc(100% - 38px);
+      height: 360px;
+    }
+
+    .principal .post-text-area{
+      width: calc(100% - 38px);
+    }
+  }
+</style>
+</head>
+<body>
+
+<main class="archive">
+  <div class="archive-area">
+    <div class="archive-center">
+      <div class="noticias" data-md="posts/post-04.md"></div>
+      <div class="principal" data-md="posts/post-04.md"></div>
+      <div class="card">Conteúdo 3</div>
+      <div class="card">Conteúdo 4</div>
+      <div class="card">Conteúdo 5</div>
+      <div class="card">Conteúdo 6</div>
+      <div class="card">Conteúdo 7</div>
+      <div class="card">Conteúdo 8</div>
+      <div class="card">Conteúdo 9</div>
+      <div class="card">Conteúdo 10</div>
+      <div class="card">Conteúdo 11</div>
+      <div class="card">Conteúdo 12</div>
+      <div class="card">Conteúdo 13</div>
+      <div class="card">Conteúdo 14</div>
+      <div class="card">Conteúdo 15</div>
+      <div class="card">Conteúdo 16</div>
+      <div class="card">Conteúdo 17</div>
+      <div class="card">Conteúdo 18</div>
+      <div class="card">Conteúdo 19</div>
+      <div class="card">Conteúdo 20</div>
+      <div class="card">Conteúdo 21</div>
+      <div class="card">Conteúdo 22</div>
+      <div class="card">Conteúdo 23</div>
+      <div class="card">Conteúdo 24</div>
+      <div class="card">Conteúdo 25</div>
+      <div class="card">Conteúdo 26</div>
+      <div class="card">Conteúdo 27</div>
+      <div class="card">Conteúdo 28</div>
+      <div class="card">Conteúdo 29</div>
+      <div class="card">Conteúdo 30</div> 
+      <div class="card">Conteúdo 31</div>
+      <div class="card">Conteúdo 32</div>
+      <div class="card">Conteúdo 33</div>
+      <div class="card">Conteúdo 34</div>
+      <div class="card">Conteúdo 35</div>
+      <div class="card">Conteúdo 36</div>
+      <div class="card">Conteúdo 37</div>
+      <div class="card">Conteúdo 38</div>
+      <div class="card">Conteúdo 39</div>
+      <div class="card">Conteúdo 40</div>
+      <button id="loadMore">Ver Mais</button>
+    </div>
+    
+    <aside class="archive-lateral"></aside>
+  </div>
+</main>
+
+<script>
+  (() => {
+    const cards = document.querySelectorAll(".card");
+    const btn = document.getElementById("loadMore");
+    const initialVisible = 20;  // quantidade de cards visíveis inicialmente
+    const batch = 4;            // quantidade de cards por clique
+    let visible = 0;
+
+    const showCards = (count) => {
+      for (let i = visible; i < visible + count && i < cards.length; i++) {
+        const card = cards[i];
+        card.style.display = "flex";
+        requestAnimationFrame(() => card.style.opacity = 1);
+      }
+      visible += count;
+      if (visible >= cards.length) btn.style.display = "none";
+    };
+
+    showCards(initialVisible); // mostra os primeiros cards
+
+    btn.addEventListener("click", () => showCards(batch));
+  })();
+</script>
+
+</body>
+</html>

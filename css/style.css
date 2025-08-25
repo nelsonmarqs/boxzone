@@ -1,0 +1,122 @@
+/*----- Exportar Css -----*/
+@import url('menu.css');
+@import url('destaque.css');
+@import url('news.css');
+@import url('roda-pe.css');
+
+
+
+
+
+
+
+
+
+/* Font's */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'Myfont-Regular';
+  src: url('../fonts/Myfont-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LTWave-Bold';
+  src: url('../fonts/LTWave-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'trebuc';
+  src: url('../fonts/trebuc.ttf') format('truetype');
+}
+
+
+
+
+
+
+
+
+
+
+/* Reset básico eficiente */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: #cfc2fa;
+  background-image: url('../img/fundo.png');
+}
+
+/* Remove bordas e estilos padrão de botões e inputs */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:black; /* cor do background que vai ocupar o body */
+    z-index:999; /* z-index para jogar para frente e sobrepor tudo */
+}
+
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+
+#preloader .inner img{
+  width: 102px;
+  height: 109px;
+}

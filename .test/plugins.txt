@@ -1,0 +1,42 @@
+    <!-- SLIDE -->
+    <div class="slider-area">
+      <div class="slider">
+        <div class="imgs" id="slider">
+          <img src="https://i.ytimg.com/vi/BlCu2ZcatxU/hq720.jpg" />
+          <img src="https://i.ytimg.com/vi/BlCu2ZcatxU/hq720.jpg" />
+          <img src="https://i.ytimg.com/vi/BlCu2ZcatxU/hq720.jpg" />
+        </div>
+        <button class="btn left" onclick="mover(-1)">‹</button>
+        <button class="btn right" onclick="mover(1)">›</button>
+      </div>
+      <div class="barras" id="barras"></div>
+      <div class="desc" id="desc">
+        <div class="ativo">1/3 O nível muda de vermelho para verde conforme se aproxima do prumo.</div>
+        <div>2/3 Gatos fofos também precisam de nível!</div>
+        <div>3/3 Uma imagem de exemplo só para completar o slide.</div>
+      </div>
+    </div>
+    <!-- SLIDE -->
+
+
+
+    <!-- IMAGEM -->
+    <figure class="post-b-img">
+      <img src="" alt="">
+      <figcaption>Esta é a descrição ou legenda da imagem.</figcaption>
+    </figure>
+    <!-- IMAGEM -->
+
+
+
+    <!-- YOUTUBE -->
+    <div class="post-b-youtube">
+      <iframe src="https://www.youtube.com/embed/dx2yhkeymOc" title="parem de nos comparar ao jogandofodacci💀🖕 - Hotline Miami 2: Wrong Number | EP15" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <!-- YOUTUBE -->
+
+
+
+    <!-- INSTAGRAM -->
+    <iframe class="instagram" src="https://www.instagram.com/p/DMeKqnwt-1C/embed" name="post instagram" scrolling="no" style="border:2px solid #cfc2fa; marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    <!-- INSTAGRAM -->

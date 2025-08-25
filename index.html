@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js"></script>
+  <script src="https://kit.fontawesome.com/1111dee495.js" crossorigin="anonymous"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <!-- início do preloader -->
+  <div id="preloader">
+    <div class="inner">
+      <img src="img/logo.png">
+    </div>
+  </div>
+
+  <nav class="menu">
+    <div class="menu-area">
+      <div class="menu-sanduiche" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="menu-logo">
+        <a href="#"><img src="img/logo.png" alt="logo do site" title="Logo do site no formato chopsuey"></a>
+      </div>
+
+      <div class="menu-link">
+        <a href="#">Magazine</a>
+        <a href="#">Tv</a>
+        <a href="#">News</a>
+        <a href="#">Life</a>
+        <a href="#">Tech</a>
+        <a href="#">Munchies</a>
+        <a href="#">Music</a>
+        <a href="#">Waypoint</a>
+        <a href="#">Shop</a>
+        <a href="#">Members</a>
+      </div>
+
+      <div class="menu-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <div class="menu-search">
+        <a href="#"><i class="fas fa-search"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="menu-mobile">
+    <div class="menu-mobile-area">
+      <div class="menu-explore">
+        <a href="">EXPLORE</a>
+        <hr>
+        <a href="">Dazed Club</a>
+        <a href="">Dazed Archive</a>
+        <a href="">Latest</a>
+        <a href="">Fashion</a>
+        <a href="">Beauty</a>
+        <a href="">Art &</a>
+        <a href="">Photography</a>
+        <a href="">Film & TV</a>
+        <a href="">Music</a>
+        <a href="">Life & Culture</a>
+      </div>
+      
+      <div class="menu-series">
+        <a href="">SERIES</a>
+        <hr>
+        <a href="">Dazed 100</a>
+        <a href="">Fashion Week</a>
+        <a href="">Lightbox</a>
+        <a href="">Archive Pull</a>
+        <a href="">Dazed Guides To</a>
+      </div>
+      
+      <div class="menu-destaque">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="menu-roda-pe">
+        <div class="menu-roda-pe-links">
+          <a href="">Newsletters</a>
+          <a href="">magazine</a>
+          <a href="">abount</a>
+        </div>
+
+        <div class="menu-roda-pe-social">
+          <i class="fa-brands fa-tiktok"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-pinterest"></i>
+          <i class="fa-brands fa-reddit-alien"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="destaque">
+    <article class="destaque-centro">
+      <div class="dcp" data-md="posts/post-03.md"></div>
+    </article>
+    
+    <div class="destaque-ads"></div>
+    
+    <aside class="destaque-lateral">
+      <div class="dlp" data-md="posts/post-04.md"></div>
+      <div class="dlp" data-md="posts/post-04.md"></div>
+      <div class="dlp" data-md="posts/post-04.md"></div>
+      <div class="dlp" data-md="posts/post-04.md"></div>
+      <div class="dlp" data-md="posts/post-04.md"></div>
+    </aside>
+  </header>
+
+  <div class="news">
+    <section class="news-centro">
+      <div class="noticias" data-md="posts/post-04.md" style="border-radius: 6px 6px 0px 0px;"></div>
+      <div class="principal" data-md="posts/post-04.md"></div>
+      <div class="npc" data-md="posts/post-07.md"></div>
+      <div class="npc" data-md="posts/post-04.md"></div>
+      <div class="npc" data-md="posts/post-06.md"></div>
+      <div class="npc" data-md="posts/post-08.md"></div>
+      <div class="npc" data-md="posts/post-05.md" style="border-radius: 0px 0px 6px 6px;"></div>
+    </section>
+    
+    <aside class="news-lateral">
+      <!-- 81px -->
+      <div class="aside-lateral">
+        <h1>Cavalo</h1>
+      </div>
+
+      <!-- 160px -->
+      <div class="aside-centro">
+        <div class="acp" data-md="posts/post-04.md"></div>
+        <div class="acn acn-01" data-md="posts/post-04.md"></div>
+        <div class="acn acn-02" data-md="posts/post-04.md"></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="roda-pe">
+    <div class="roda-pe-area">
+      <figure>
+        <a href=""><img src="img/logo.png" alt=""></a>
+      </figure>
+
+      <ul>
+        <li><a href="">About</a></li>
+        <li><a href="">Jobs</a></li>
+        <li><a href="">Partner</a></li>
+        <li><a href="">VICE Voices</a></li>
+        <li><a href="">Content Funding on VICE</a></li>
+        <li><a href="">Security Policy</a></li>
+        <li><a href=""> Privacy & Terms</a></li>
+      </ul>
+
+      <div>
+        <p>© 2025 <span>BoxZone</span> GROUP</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
